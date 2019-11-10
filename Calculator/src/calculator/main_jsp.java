@@ -30,7 +30,7 @@ public class main_jsp extends JFrame {
 	private JButton devide_bt;
 	private JButton result_bt;
 	private CalcuatorController cal;
-	String nData;
+	String previewFildData;
 	private JTextField textFieldPreview;
 	/**
 	 * Launch the application.
@@ -64,20 +64,29 @@ public class main_jsp extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
+		
 		textArea = new JTextField();
 		textArea.setEditable(false);
 		textArea.setText("0");
 		textArea.setBounds(12, 51, 195, 45);
-		contentPane.add(textArea);
 		textArea.setColumns(10);
 		textArea.setHorizontalAlignment(JTextField.RIGHT);
-		nData = textArea.getText();
+		contentPane.add(textArea);
+		
+		textFieldPreview = new JTextField();
+		textFieldPreview.setEditable(false);
+		textFieldPreview.setText("0");
+		textFieldPreview.setColumns(10);
+		textFieldPreview.setBounds(12, 10, 195, 31);
+		textFieldPreview.setHorizontalAlignment(JTextField.RIGHT);
+		contentPane.add(textFieldPreview);
 		
 		JButton num1_Bt = new JButton("1");
 		num1_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num1_Bt.setBounds(12, 256, 45, 45);
@@ -87,6 +96,7 @@ public class main_jsp extends JFrame {
 		num2_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num2_Bt.setBounds(62, 256, 45, 45);
@@ -96,6 +106,7 @@ public class main_jsp extends JFrame {
 		num3_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num3_Bt.setBounds(112, 256, 45, 45);
@@ -105,6 +116,7 @@ public class main_jsp extends JFrame {
 		num4_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num4_Bt.setBounds(12, 206, 45, 45);
@@ -114,6 +126,7 @@ public class main_jsp extends JFrame {
 		num5_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num5_Bt.setBounds(62, 206, 45, 45);
@@ -123,6 +136,7 @@ public class main_jsp extends JFrame {
 		num6_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num6_Bt.setBounds(112, 206, 45, 45);
@@ -132,6 +146,7 @@ public class main_jsp extends JFrame {
 		num7_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num7_Bt.setBounds(12, 156, 45, 45);
@@ -141,6 +156,7 @@ public class main_jsp extends JFrame {
 		num8_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num8_Bt.setBounds(62, 156, 45, 45);
@@ -150,6 +166,7 @@ public class main_jsp extends JFrame {
 		num9_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num9_Bt.setBounds(112, 156, 45, 45);
@@ -159,6 +176,7 @@ public class main_jsp extends JFrame {
 		num0_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		num0_Bt.setBounds(62, 306, 45, 45);
@@ -168,6 +186,7 @@ public class main_jsp extends JFrame {
 		plus_Bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		plus_Bt.setBounds(162, 256, 45, 45);
@@ -177,6 +196,7 @@ public class main_jsp extends JFrame {
 		sub_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		sub_bt.setBounds(162, 206, 45, 45);
@@ -186,6 +206,7 @@ public class main_jsp extends JFrame {
 		multi_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		multi_bt.setBounds(162, 156, 45, 45);
@@ -195,6 +216,7 @@ public class main_jsp extends JFrame {
 		devide_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		devide_bt.setBounds(162, 106, 45, 45);
@@ -204,6 +226,7 @@ public class main_jsp extends JFrame {
 		result_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		result_bt.setBounds(162, 306, 45, 45);
@@ -213,6 +236,7 @@ public class main_jsp extends JFrame {
 		clear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		clear.setBounds(62, 106, 45, 45);
@@ -222,6 +246,7 @@ public class main_jsp extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(cal.eventController(e));
+				textFieldPreview.setText(cal.getActionCommand());
 			}
 		});
 		button.setBounds(112, 106, 45, 45);

@@ -9,11 +9,16 @@ public class CalcuatorController {
 	public String lastOperator;
 	public boolean checkLastOperatorEquals;
 	public boolean check;
+	String previewFildData;
+	String temp;
 	String num;
 	
 	CalcuatorController() {
 		this.number1 = 0;
 		this.number2 = 0;
+		this.previewFildData = "";
+		this.temp = "";
+		this.num = "";
 		this.lastOperator = null;
 		this.checkLastOperatorEquals = false;
 		this.check = true;
@@ -39,10 +44,10 @@ public class CalcuatorController {
 			break;
 		}
 	}
-
+	
 	public String eventController(/*@Param(RequestEvent)*/ActionEvent event) {
 		System.out.println("Event: " + event.getActionCommand());
-		String temp = event.getActionCommand();
+		temp = event.getActionCommand();
 		
 	
 		if (temp.charAt(0) >= '0' && temp.charAt(0) <= '9') {
@@ -116,4 +121,15 @@ public class CalcuatorController {
 			return Integer.toString(number1);
 		}
 	}
+	
+	public String getActionCommand() {
+		if(temp.equals("=") || temp.equals("C")) {
+			previewFildData = "";
+		} else {
+			previewFildData += temp;
+		}
+		
+		return previewFildData;
+	}
+	
 }
