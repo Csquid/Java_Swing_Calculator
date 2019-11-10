@@ -7,6 +7,7 @@ public class CalcuatorController {
 	public int number1;
 	public int number2;
 	public String lastOperator;
+	public boolean checkLastOperatorEquals;
 	public boolean check;
 	String num;
 	
@@ -14,6 +15,7 @@ public class CalcuatorController {
 		this.number1 = 0;
 		this.number2 = 0;
 		this.lastOperator = null;
+		this.checkLastOperatorEquals = false;
 		this.check = true;
 	}
 	
@@ -49,8 +51,8 @@ public class CalcuatorController {
 			}
 
 			if (check == true) {
-				num = temp; // temp 媛�?�쓣 �꽔?��
-				check = false; // false濡� 留뚮뱾�뼱以�?
+				num = temp; // temp
+				check = false; // false
 				return num;
 			} else {
 				num += temp;
@@ -60,29 +62,6 @@ public class CalcuatorController {
 		} else {
 			System.out.println("this is not number: " + temp);
 
-			if (number1 == 0) {
-				lastOperator = temp;
-				number1 = Integer.parseInt(num);
-
-				
-				check = true;
-				return num;
-			} 
-			
-			if(temp.equals("=")) {
-				System.out.println("if(temp.equals(\"=\")");
-				isOperatorCalc(lastOperator, num);
-				lastOperator = temp;
-			} else {
-				if(lastOperator == "=") {
-					lastOperator = temp;
-					check = true;
-					return Integer.toString(number1);
-				}
-				isOperatorCalc(lastOperator, num);
-				lastOperator = temp;
-			}
-			
 			if(temp.equals("C")) {
 				check = true;
 
@@ -92,10 +71,48 @@ public class CalcuatorController {
 				return "0";
 			}
 			
+			if (number1 == 0) {
+				lastOperator = temp;
+				number1 = Integer.parseInt(num);
+				
+				
+				check = true;
+				return num;
+			} 
+			
+			//backspace
+			if(temp.equals("☜")) {
+				int number1Length = Integer.toString(number1).length();
+	
+				
+				//만약 number1의 숫자가 1자리 숫자일때.
+				if(number1Length <= 1) {
+					System.out.println("Test");
+					number1 = 0;
+				} else {
+					number1 = Integer.parseInt(Integer.toString(number1).substring(0, number1Length - 1));
+				}
+				
+				return Integer.toString(number1);
+			}
+			
+			if(temp.equals("=")) {
+				System.out.println("if(temp.equals(\"=\")");
+				isOperatorCalc(lastOperator, num);
+				checkLastOperatorEquals = true;
+			} else {
+				if(checkLastOperatorEquals) {
+					lastOperator = temp;
+					checkLastOperatorEquals = false;
+					return Integer.toString(number1);
+				}
+				isOperatorCalc(lastOperator, num);
+				lastOperator = temp;
+			}
+			
 			//number2 = 0;
 
 			check = true;
-			System.out.println("number1: " + number1);
 			return Integer.toString(number1);
 		}
 	}

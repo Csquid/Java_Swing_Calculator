@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.SystemColor;
 
 public class main_jsp extends JFrame {
 	
@@ -30,6 +31,7 @@ public class main_jsp extends JFrame {
 	private JButton result_bt;
 	private CalcuatorController cal;
 	String nData;
+	private JTextField textFieldPreview;
 	/**
 	 * Launch the application.
 	 */
@@ -51,20 +53,25 @@ public class main_jsp extends JFrame {
 	 */
 
 	public main_jsp() {
+		setBackground(SystemColor.window);
+		setTitle("Calcuator");
 		cal = new CalcuatorController();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 326, 300);
+		setBounds(100, 100, 230, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.window);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		textArea = new JTextField();
+		textArea.setEditable(false);
 		textArea.setText("0");
-		textArea.setBounds(32, 10, 261, 31);
+		textArea.setBounds(12, 51, 195, 45);
 		contentPane.add(textArea);
 		textArea.setColumns(10);
+		textArea.setHorizontalAlignment(JTextField.RIGHT);
 		nData = textArea.getText();
 		
 		JButton num1_Bt = new JButton("1");
@@ -73,7 +80,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num1_Bt.setBounds(32, 53, 45, 45);
+		num1_Bt.setBounds(12, 256, 45, 45);
 		contentPane.add(num1_Bt);
 
 		num2_Bt = new JButton("2");
@@ -82,7 +89,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num2_Bt.setBounds(84, 53, 45, 45);
+		num2_Bt.setBounds(62, 256, 45, 45);
 		contentPane.add(num2_Bt);
 
 		num3_Bt = new JButton("3");
@@ -91,7 +98,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num3_Bt.setBounds(136, 53, 45, 45);
+		num3_Bt.setBounds(112, 256, 45, 45);
 		contentPane.add(num3_Bt);
 
 		num4_Bt = new JButton("4");
@@ -100,7 +107,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num4_Bt.setBounds(32, 99, 45, 45);
+		num4_Bt.setBounds(12, 206, 45, 45);
 		contentPane.add(num4_Bt);
 
 		num5_Bt = new JButton("5");
@@ -109,7 +116,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num5_Bt.setBounds(84, 99, 45, 45);
+		num5_Bt.setBounds(62, 206, 45, 45);
 		contentPane.add(num5_Bt);
 
 		num6_Bt = new JButton("6");
@@ -118,7 +125,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num6_Bt.setBounds(136, 99, 45, 45);
+		num6_Bt.setBounds(112, 206, 45, 45);
 		contentPane.add(num6_Bt);
 
 		num7_Bt = new JButton("7");
@@ -127,7 +134,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num7_Bt.setBounds(32, 149, 45, 45);
+		num7_Bt.setBounds(12, 156, 45, 45);
 		contentPane.add(num7_Bt);
 
 		num8_Bt = new JButton("8");
@@ -136,7 +143,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num8_Bt.setBounds(84, 149, 45, 45);
+		num8_Bt.setBounds(62, 156, 45, 45);
 		contentPane.add(num8_Bt);
 
 		num9_Bt = new JButton("9");
@@ -145,7 +152,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num9_Bt.setBounds(136, 149, 45, 45);
+		num9_Bt.setBounds(112, 156, 45, 45);
 		contentPane.add(num9_Bt);
 
 		num0_Bt = new JButton("0");
@@ -154,7 +161,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		num0_Bt.setBounds(84, 199, 45, 45);
+		num0_Bt.setBounds(62, 306, 45, 45);
 		contentPane.add(num0_Bt);
 
 		plus_Bt = new JButton("+");
@@ -163,7 +170,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		plus_Bt.setBounds(201, 53, 45, 45);
+		plus_Bt.setBounds(162, 256, 45, 45);
 		contentPane.add(plus_Bt);
 
 		sub_bt = new JButton("-");
@@ -172,7 +179,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		sub_bt.setBounds(201, 99, 45, 45);
+		sub_bt.setBounds(162, 206, 45, 45);
 		contentPane.add(sub_bt);
 
 		multi_bt = new JButton("*");
@@ -181,7 +188,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		multi_bt.setBounds(201, 149, 45, 45);
+		multi_bt.setBounds(162, 156, 45, 45);
 		contentPane.add(multi_bt);
 
 		devide_bt = new JButton("/");
@@ -190,7 +197,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		devide_bt.setBounds(201, 199, 45, 45);
+		devide_bt.setBounds(162, 106, 45, 45);
 		contentPane.add(devide_bt);
 
 		result_bt = new JButton("=");
@@ -199,7 +206,7 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		result_bt.setBounds(253, 53, 45, 190);
+		result_bt.setBounds(162, 306, 45, 45);
 		contentPane.add(result_bt);
 
 		JButton clear = new JButton("C");
@@ -208,7 +215,24 @@ public class main_jsp extends JFrame {
 				textArea.setText(cal.eventController(e));
 			}
 		});
-		clear.setBounds(136, 199, 45, 45);
+		clear.setBounds(62, 106, 45, 45);
 		contentPane.add(clear);
+		
+		JButton button = new JButton("☜");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText(cal.eventController(e));
+			}
+		});
+		button.setBounds(112, 106, 45, 45);
+		contentPane.add(button);
+		
+		textFieldPreview = new JTextField();
+		textFieldPreview.setEditable(false);
+		textFieldPreview.setText("0");
+		textFieldPreview.setColumns(10);
+		textFieldPreview.setBounds(12, 10, 195, 31);
+		textFieldPreview.setHorizontalAlignment(JTextField.RIGHT);
+		contentPane.add(textFieldPreview);
 	}
 }
